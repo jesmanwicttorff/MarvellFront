@@ -119,8 +119,7 @@ export const mutations = {
   }
 };
 
-export const actions = {
-  
+export const actions = {  
   async listMarvell({commit}) {
     try {
       console.log("Jesman")
@@ -152,6 +151,7 @@ export const actions = {
     try {
       console.log("Jesman Excel")
       const response = await axios.get('http://localhost:8081/api/marvell/excel');
+      console.log("esxcel " , response);
     } catch (error) {
       console.error('Error al  Descargar Excel:', error);
     }

@@ -73,11 +73,8 @@
     </template>
   </v-data-table>
 </template>
-
 <script>
 import axios from "axios"
-
-
 export default {
   data() {
     return {
@@ -125,6 +122,7 @@ export default {
   methods: {
     downloadExcel(dataExcel)
         {
+          console.log("excel mss");
             const link = document.createElement('a');
             link.href = `data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,${dataExcel}`;
             link.download = 'reporteMarvell.xlsx';
@@ -143,8 +141,8 @@ export default {
   },
   async DescargarEXCEL(){
       console.log("aqui Excel");
-   const responseExcel =   await this.$store.dispatch('ExcelMarvell');  
-   this.downloadExcel(responseExcel);
+      const responseExcel =   await this.$store.dispatch('ExcelMarvell');  
+      this.downloadExcel(responseExcel);
   },
   async DescargarWORD(){
       console.log("aqui Word");

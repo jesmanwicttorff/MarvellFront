@@ -8,6 +8,16 @@ export default {
     htmlAttrs: {
       lang: 'en'
     },
+     // Otras configuraciones...
+  buildModules: ['@nuxt/auth-next'],
+  auth: {
+    strategies: {
+      keycloak: {
+        scheme: './shemes/keycloack.js',
+        // Configuración específica de Keycloak aquí
+      },
+    },
+  },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -45,9 +55,16 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: '/',
+    proxy: true
   },
-
+  proxy: {
+    '/api/': { target: 'http://localhost:8081', pathRewrite: {'^/api/': ''} }
+  },
+  /*
+  env: {
+    API_BASE_URL: process.env.API_BASE_URL,
+  },
+  */
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
