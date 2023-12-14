@@ -105,7 +105,7 @@ export default {
         {
           icon: 'mdi-chart-bubble',
           title: 'List Marvell',
-          to: '/inspire',
+          to: '/marvel',
         },
         {
           icon: 'mdi-chart-bubble',

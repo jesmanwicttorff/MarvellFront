@@ -78,7 +78,7 @@ export const mutations = {
 
   /// Tienda de Zapatos
   setShoes(state, shoess) {
-    console.log("aqui ss")
+   // console.log("aqui ss")
     state.shoess = shoess;
   },
   setModelo(state, modelo) {
@@ -122,7 +122,7 @@ export const mutations = {
 export const actions = {  
   async listMarvell({commit}) {
     try {
-      console.log("Jesman")
+     // console.log("Jesman")
       const response = await axios.get('http://localhost:8081/api/marvell');
       // Muestro el log Data
       console.log('List Marvell:', response.data); 
@@ -135,6 +135,8 @@ export const actions = {
     try {
       console.log("Jesman PDF")
       const response = await axios.get('http://localhost:8081/api/marvell/report/pdf');
+      console.log(response.data);
+     return response.data
     } catch (error) {
       console.error('Error al  Descargar PDF:', error);
     }
@@ -151,7 +153,7 @@ export const actions = {
     try {
       console.log("Jesman Excel")
       const response = await axios.get('http://localhost:8081/api/marvell/excel');
-      console.log("esxcel " , response);
+      console.log("excel " , response);
     } catch (error) {
       console.error('Error al  Descargar Excel:', error);
     }
